@@ -19,7 +19,7 @@
         <ul class="right hide-on-med-and-down">
         <li><a href="{{ url_for('home')}}">Home</a></li>
         <li><a href="">New Task</a></li>
-        <li><a href="{{ url_for('categories')}}">New Category</a></li>
+        <li><a href="{{ url_for('categories')}}">Category</a></li>
         </ul>
     </div>
     </nav>
@@ -27,7 +27,7 @@
     <ul class="sidenav" id="mobile-demo">
         <li><a href="{{ url_for('home')}}">Home</a></li>
         <li><a href="">New Task</a></li>
-        <li><a href="{{ url_for('categories')}}">New Category</a></li>
+        <li><a href="{{ url_for('categories')}}">Category</a></li>
     </ul>
         
    <main class="content">
@@ -53,9 +53,10 @@
     </div>
   </footer>
 
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    
     <!-- Jquery and Materialize Script tags -->
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
