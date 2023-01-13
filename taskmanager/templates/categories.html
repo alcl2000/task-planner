@@ -4,7 +4,7 @@
 
     <div class="row">
         <div class="col s12 center-align">
-            <a href="{{url_for('add_category')}}" class="btn-large teal lighten-2">
+            <a href="{{url_for('add_category')}}" class="btn-large green accent-1">
                 Add Category <i class="exposure_plus_1"></i>
             </a>
         </div>
@@ -12,11 +12,11 @@
     <div class="row">
         {% for category in categories %}
             <div class="col s12 m6 l3">
-                <div class="card teal lighten-3">
+                <div class="card green lighten-3">
                     <div class="card-content white-text">
-                    <span class="card-title">{{ category.category_name }}</span>
+                    <span class="card-title middle">{{ category.category_name }}</span>
                     </div>
-                    <div class="card-action">
+                    <div class="card-action middle">
                     <a href="{{ url_for('edit_category', category_id=category.id) }}" class="btn">Edit</a>
                     <a href="#modal-{{category.id}}" class="btn modal-trigger">Delete</a>
                     <!-- modal -->
@@ -30,9 +30,9 @@
                                 This action cannot be undone
                             </p>
                         </div>
-                        <div class="modal-footer">
+                        <div class="modal-footer middle">
                             <a href="{{ url_for('delete_category', category_id=category.id) }}" class="btn red darken-4">Delete</a>
-                            <a href="" class="modal_close btn green accent-4">Close</a>
+                            <a href="" class="modal_close btn green accent-4">Keep Category</a>
                         </div>
                     </div>
                     </div>

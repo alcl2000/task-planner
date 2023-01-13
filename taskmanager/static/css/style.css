@@ -1,3 +1,8 @@
+:root{
+  --sage: rgb(209, 234, 189);
+  --sage-trans: rgba(290, 234, 189, 0.5);
+}
+
 body {
     display: flex;
     min-height: 100vh;
@@ -17,3 +22,6 @@ body {
     padding-right: 5px;
     padding-left: 5px;
   }
+.middle{
+  text-align: center!important;
+}
