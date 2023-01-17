@@ -1,5 +1,22 @@
 {%extends 'base.html'%}
 {% block content %}
     <h1 class="center-align green-text">Tasks</h1>
-
+    <div class="row">
+        <div class="col s12 center-align">
+            <a href="{{url_for('add_task')}}" class="btn-large green accent-1">
+                Add Task <i class="exposure_plus_1"></i>
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <ul class="collapsible">
+        {% for task in tasks %}
+            <li class="s12 l8">
+              <div class="collapsible-header"><i class="filter_drama"></i>
+                <h5><em>{{ task.task_name}} || Do By: {{task.due_date}}</em></h5>
+            </div>
+              <div class="collapsible-body"><span>{{ task.task_description }}.</span></div>
+            </li>
+        {% endfor %}</ul>
+    </div>
 {% endblock %}
