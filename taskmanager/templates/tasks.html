@@ -9,14 +9,23 @@
         </div>
     </div>
     <div class="row">
-        <ul class="collapsible">
-        {% for task in tasks %}
-            <li class="s12 l8">
-              <div class="collapsible-header"><i class="filter_drama"></i>
-                <h5><em>{{ task.task_name}} || Do By: {{task.due_date}}</em></h5>
-            </div>
-              <div class="collapsible-body"><span>{{ task.task_description }}.</span></div>
-            </li>
-        {% endfor %}</ul>
+        <div class="col s12 l8 push-l2">
+            <ul class="collapsible">
+                {% for task in tasks|sort(attribute='due_date') %}
+                <li>
+                  <div class="collapsible-header green"><i class="material-icons">arrow_drop_down</i>
+                    <h5><em>{{task.task_name}}</em> || Due date: {{task.due_date}}
+                        {% if task.is_urgent == True %}
+                        ! ! !
+                        {% endif %}
+                    </h5>
+                    </div>
+                  <div class="collapsible-body"><span>
+                    {{task.task_description}}
+                  </span></div>
+                </li>
+                {%endfor%}
+            </ul>
+        </div>
     </div>
 {% endblock %}
