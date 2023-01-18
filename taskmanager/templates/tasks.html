@@ -10,22 +10,48 @@
     </div>
     <div class="row">
         <div class="col s12 l8 push-l2">
-            <ul class="collapsible">
-                {% for task in tasks|sort(attribute='due_date') %}
-                <li>
-                  <div class="collapsible-header green"><i class="material-icons">arrow_drop_down</i>
-                    <h5><em>{{task.task_name}}</em> || Due date: {{task.due_date}}
-                        {% if task.is_urgent == True %}
-                        ! ! !
+            {% for category in categories %}
+                <h3>
+                    {{category.category_name}}:-
+                </h3>
+                <ul class="collapsible">
+                    {% for task in tasks|sort(attribute="due_date")| sort( reverse=true, attribute="is_urgent") %}
+                        {% if task.category_id == category.id %}
+                            <li>
+                            <div class="collapsible-header green"><i class="material-icons">arrow_drop_down</i>
+                                <h5>{{ task.category_ }}  </h5>
+                                <h4><em>{{task.task_name.upper()}}</em> || Due date: {{task.due_date}}
+                                    {% if task.is_urgent == True %}
+                                    ! ! !
+                                    {% endif %}
+                                </h4>
+                                </div>
+                            <div class="collapsible-body">
+                                <span>{{task.task_description}}</span>
+                                <br>
+                                <br>
+                                <a href="{{url_for('edit_task', task_id=task.id)}}" class="btn">Edit</a>
+                                <a href="#modal-{{task.id}}" class="btn modal-trigger">Delete</a>
+                                <!-- modal -->
+                                <div id="modal-{{ task.id }}"class="modal">
+                                    <div class="modal-content">
+                                        <h4>
+                                            Are you sure you want to delete this Task?
+                                        </h4>
+                                        <p>
+                                            This action cannot be undone
+                                        </p>
+                                    </div>
+                                    <div class="modal-footer middle">
+                                        <a href="" class="btn red darken-4">Delete</a>
+                                        <a href="" class="modal_close btn green accent-4">Keep Category</a>
+                                    </div>
+                            </div>
+                            </li>
                         {% endif %}
-                    </h5>
-                    </div>
-                  <div class="collapsible-body"><span>
-                    {{task.task_description}}
-                  </span></div>
-                </li>
-                {%endfor%}
-            </ul>
+                    {%endfor%}
+                </ul>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}
