@@ -18,7 +18,7 @@
                     {% for task in tasks|sort(attribute="due_date")| sort( reverse=true, attribute="is_urgent") %}
                         {% if task.category_id == category.id %}
                             <li>
-                            <div class="collapsible-header green"><i class="material-icons">arrow_drop_down</i>
+                            <div class="collapsible-header green lighten-3"><i class="material-icons">arrow_drop_down</i>
                                 <h5>{{ task.category_ }}  </h5>
                                 <h4><em>{{task.task_name.upper()}}</em> || Due date: {{task.due_date}}
                                     {% if task.is_urgent == True %}
